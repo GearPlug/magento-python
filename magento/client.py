@@ -153,6 +153,43 @@ class Client(object):
         """
         return self._get('orders/' + order_id, params=params)
 
+    def get_product_types(self, params=None):
+        """Retrieve available product types
+
+        Args:
+            params:
+
+        Returns:
+
+        """
+        return self._get('products/types', params=params)
+
+    def get_product_attribute_sets(self, params=None):
+        """Retrieve list of Attribute Sets
+
+        Args:
+            params:
+
+        Returns:
+
+        """
+        return self._get('products/attribute-sets/sets/list', params=params)
+
+    def get_customer_groups(self, params=None):
+        """Retrieve customer groups. The list of groups can be filtered to exclude the NOT_LOGGED_IN group
+        using the first parameter and/or it can be filtered by tax class. This call returns an array of objects,
+        but detailed information about each object’s attributes might not be included.
+        See http://devdocs.magento.com/codelinks/attributes.html#GroupRepositoryInterface to determine which
+        call to use to get detailed information about all attributes for an object.
+
+        Args:
+            params:
+
+        Returns:
+
+        """
+        return self._get('customerGroups/search', params=params)
+
     def _get(self, url, **kwargs):
         return self._request('GET', url, **kwargs)
 
