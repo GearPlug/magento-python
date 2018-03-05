@@ -19,17 +19,17 @@ class Client(object):
         """
         return self._get('products', params=params)
 
-    def get_product(self, product_id, params=None):
+    def get_product(self, product_sku, params=None):
         """Get info about product by product SKU
 
         Args:
-            product_id:
+            product_sku:
             params:
 
         Returns:
 
         """
-        return self._get('products/' + product_id, params=params)
+        return self._get('products/' + product_sku, params=params)
 
     def create_product(self, data=None):
         """Create product
@@ -42,29 +42,29 @@ class Client(object):
         """
         return self._post('products', json=data)
 
-    def update_product(self, product_id, data=None):
+    def update_product(self, product_sku, data=None):
         """Create product
 
         Args:
-            product_id:
+            product_sku:
             data:
 
         Returns:
 
         """
-        return self._put('products/' + product_id, json=data)
+        return self._put('products/' + product_sku, json=data)
 
-    def delete_product(self, product_id, params=None):
+    def delete_product(self, product_sku, params=None):
         """Delete product by product SKU
 
         Args:
-            product_id:
+            product_sku:
             params:
 
         Returns:
 
         """
-        return self._delete('products/' + product_id, params=params)
+        return self._delete('products/' + product_sku, params=params)
 
     def search_customer(self, params=None):
         """Retrieve customers which match a specified criteria. This call returns an array of objects,
